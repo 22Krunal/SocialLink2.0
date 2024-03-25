@@ -1,0 +1,1 @@
+moudle.exports.DB_NAME = "SocialLink"
