@@ -1,12 +1,15 @@
-require('dotenv').config({path: './env'});
-const express = require('express');
+require('dotenv').config({path: '../.env'});
 const connectDB = require('./db/db')
+const app = require('./app');
 
-connectDB();
-const app = express();
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, (req, res)=>{
-    console.log(`Server is Listing to Port ${PORT}...`);
+connectDB()
+.then(()=>{
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, (req, res)=>{
+        console.log(`Server is Running at Port: ${PORT}`);
+    })
+})
+.catch((err)=>{
+    console.log('Mongodb connection error ', err);
 })

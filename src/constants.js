@@ -1,1 +1,1 @@
-moudle.exports.DB_NAME = "SocialLink"
+module.exports.DB_NAME = "SocialLink"
